@@ -14,9 +14,13 @@
     <body>
         <script src="main.js"></script>
         <!-- hugtext -->
-            <h3>Paste Link :</h3>
-            <input type="text" id="url">
-            <button type="button" id="hugtextButton"> Hug Text!</button>
+            
+            <form action="/result" method="post"> 
+                <h3>Paste Link :</h3>
+                <input type="text" name="url" id="url">
+                <button type="button" id="hugtextButton" onclick="/summarizer/"> Hug Text!</button>
+            </form>
+           
 
 
         <br><br>
