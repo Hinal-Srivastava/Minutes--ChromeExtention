@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+        <link rel="stylesheet" href="popup.css">
+        <h1>Minutes</h1>
+        <br>
+        <link rel = "icon" href = "hug-19.png" type = "image/x-icon">
+
+    <body>
+        <!-- hugtext -->
+            <h3>Paste Link :</h3>
+            <input type="text" id="input">
+            <button type="button" id="hugtextButton"> Hug Text!</button>
+
+
+        <br><br>
+        
+        <!-- summary -->
+            <h3>Summary :</h3>
+            <input type="text" id="summary">
+            <button id="copyButton" onclick="copytext">Copy text</button>
+            <script type="text/javaScript">
+                function copytext() {
+                    const summary = document.getElementById("summary");
+                    const copyButton = document.getElementById("copyButton");
+                    //Select text
+                    summary.select();
+                    summary.setSelectionRange(0,99999);
+                    //Copy Text
+                    document.execCommand("Copy");
+                }
+            </script>
+        
+    </body>
+    
+
+</html>
+

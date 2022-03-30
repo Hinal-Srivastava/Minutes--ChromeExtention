@@ -1,0 +1,56 @@
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #6e139b;
+  text-align: center;
+}
+
+body {
+  background-color: #fffee3; 
+  padding: 0
+}
+
+button {
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid #4df6fc;
+    background-color: #E4FFFE;
+    text-align: center;
+    font-size: 14px;
+    color: black;
+  }
+  
+  button:hover {
+    background-color: #4df6fc; 
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    border-radius: 8px;
+    cursor: pointer;
+    color: black;
+  }
+
+  input{
+    width: 100%;
+    padding: 2px 2px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #6e139b;
+    border-radius: 4px;
+    background-color: #faf0ff;
+  }
+
+  summary{
+    width: 100%;
+    padding: 2px 2px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #6e139b;
+    border-radius: 4px;
+    background-color: #faf0ff;
+    resize: vertical;
+  }

@@ -1,0 +1,17 @@
+{
+    "name" : "Minutes",
+    "version" : "0.0.1",
+    "manifest_version" : 2,
+    "browser_action": {
+        "default_popup" : "popup.html",
+        "browser_style": true,
+        "default_icon": {
+          "19": "hug-19.png",
+          "38": "hug-38.png"
+        }
+      },
+      "icons" : {
+        "128" : "hug-128.png"
+      },
+    "permissions" : ["activeTab"]
+}
