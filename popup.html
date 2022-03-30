@@ -12,9 +12,10 @@
         <link rel = "icon" href = "hug-19.png" type = "image/x-icon">
 
     <body>
+        <script src="main.js"></script>
         <!-- hugtext -->
             <h3>Paste Link :</h3>
-            <input type="text" id="input">
+            <input type="text" id="url">
             <button type="button" id="hugtextButton"> Hug Text!</button>
 
 
@@ -23,21 +24,8 @@
         <!-- summary -->
             <h3>Summary :</h3>
             <input type="text" id="summary">
-            <button id="copyButton" onclick="copytext">Copy text</button>
-            <script type="text/javaScript">
-                function copytext() {
-                    const summary = document.getElementById("summary");
-                    const copyButton = document.getElementById("copyButton");
-                    //Select text
-                    summary.select();
-                    summary.setSelectionRange(0,99999);
-                    //Copy Text
-                    document.execCommand("Copy");
-                }
-            </script>
-        
+            <button id="copyButton" onclick="copytext()">Copy text</button>        
     </body>
     
-
 </html>
 
