@@ -12,19 +12,23 @@
         <link rel = "icon" href = "hug-19.png" type = "image/x-icon">
 
     <body>
-        <script src="main.js"></script>
+ 
         <!-- hugtext -->
             <h3>Paste Link :</h3>
             <input type="text" name="url" id="url">
-            <button type="button" id="hugtextButton" onclick="/summarizer/"> Hug Text!</button>
+            <button id="hugtextButton"> Hug Text!</button>
             
-        
         <br><br>
         
         <!-- summary -->
             <h3>Summary :</h3>
-            <input type="text" id="summary">
-            <button id="copyButton" onclick="copytext()">Copy text</button>        
+            <textarea id="summary" placeholder="Summary" rows="1" cols="20"> </textarea>
+            <div class="tooltip">
+                <button id="copyButton" >
+                  <span class="tooltiptext" id="myTooltip"></span>
+                  Copy Text</button> 
+                </div>
+            <script src="main.js"></script>       
     </body>
     
 </html>

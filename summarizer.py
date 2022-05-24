@@ -1,3 +1,4 @@
+
 from numpy import record
 from transformers import pipeline
 from youtube_transcript_api import YouTubeTranscriptApi
@@ -8,19 +9,21 @@ import urllib.request
 import re
 import json
 import pandas as pd
-from fastapi import FastAPI, Request
-from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
-templates = Jinja2Templates(directory="templates")
 
+origins = ["*"]
 
-@app.get("/")
-def home(request: Request):
-    return templates.TemplateResponse("popup.html", {"request": request})
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.post("/summarize")
-def perform_summary(youtube_video:str):
+@app.get('/summarizer')
+async def getSummary(youtube_video:str):
     video_id = youtube_video.split("=")[1]
     YouTubeTranscriptApi.get_transcript(video_id)
     transcript = YouTubeTranscriptApi.get_transcript(video_id)
