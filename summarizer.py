@@ -1,37 +1,34 @@
+from numpy import record
 from transformers import pipeline
 from youtube_transcript_api import YouTubeTranscriptApi
-from IPython.display import YouTubeVideo
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 import urllib.request
-import json
 import re
-from flask import Flask, render_template, request
+import json
+import pandas as pd
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
 
-app = Flask(__name__)
+app = FastAPI()
+templates = Jinja2Templates(directory="templates")
 
-@app.route("/")
-@app.route("/home")
-def home():
-    return render_template("popup.html")
 
-@app.route("/result")
-def result():
-    output = request.form.to_dict()
-    url = output["url"]
-    return render_template("popup.html")
+@app.get("/")
+def home(request: Request):
+    return templates.TemplateResponse("popup.html", {"request": request})
 
-@app.route("/summarizer")
-def summarizer(url):
-    video_id = url.split("=")[1]
+@app.post("/summarize")
+def perform_summary(youtube_video:str):
+    video_id = youtube_video.split("=")[1]
     YouTubeTranscriptApi.get_transcript(video_id)
     transcript = YouTubeTranscriptApi.get_transcript(video_id)
     result = ""
     for i in transcript:
         result += ' ' + i['text']
+    summarizer = pipeline("summarization", model="t5-base", tokenizer="t5-base", framework="tf")
     summarized_text = summarizer(result, min_length=5, max_length=100)
     text = summarized_text[0]['summary_text']
-    return 'Text Summarized'
-
-
-if __name__=='__main__':
-    app.run(debug=True)
-
+    v = pd.DataFrame([text], columns=['summary'])
+    return json.loads(v.to_json(orient='records'))[0]

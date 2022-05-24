@@ -1,3 +1,5 @@
+const { default: swal } = require("sweetalert");
+
 function copytext() {
 
     let summary = document.querySelector("#summary");
