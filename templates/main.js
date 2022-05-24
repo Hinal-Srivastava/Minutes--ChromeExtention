@@ -5,7 +5,6 @@ function copytext() {
     document.execCommand("copy")
     var tooltip = document.getElementById("myTooltip");
     tooltip.innerHTML = "Copied Summary " ;
-    // alert("Copied Text");
 }
 
 function outFunc() {
